@@ -1,18 +1,16 @@
 import type { CustomNextPage } from "next";
-import FileUploader from "src/components/fileUploader";
+import DropImageZone from "src/components/DropImageZone";
 import { Layout } from "src/layout";
 
 const IndexPage: CustomNextPage = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold whitespace-nowrap">Chrome Extension Template</h1>
-      <FileUploader
-        label="Upload your files"
-        labelAlt="Drag and drop your files here"
-        acceptedFileTypes={['image/jpeg', 'image/jpg', 'image/png']}
-        allowMultiple
-        url="http://localhost:3000/api/upload"
-      />
+      <DropImageZone onDropFile={(file) => console.log(file)}>
+        <div className="flex justify-center items-center w-96 h-96 bg-gray-100">
+          <p>Drop image here</p>
+        </div>
+      </DropImageZone>
     </div>
   );
 };
