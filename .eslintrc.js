@@ -16,29 +16,20 @@ module.exports = {
   ],
   rules: {
     "no-console": ["error", { allow: ["warn", "info", "error"] }],
-    "no-restricted-syntax": ["error", { selector: "TSEnumDeclaration", message: "Don't declare enums" }],
+    "no-restricted-syntax": [
+      "error",
+      { selector: "TSEnumDeclaration", message: "Don't declare enums" },
+    ],
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "func-style": ["error", "expression"],
-    "arrow-body-style": ["error", "always"],
     "no-restricted-imports": ["error", { paths: [{ name: "react", importNames: ["default"] }] }],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/display-name": "error",
-    "react/jsx-handler-names": [
-      "error",
-      {
-        eventHandlerPrefix: "handle",
-        eventHandlerPropPrefix: "on",
-        checkLocalVariables: true,
-        checkInlineFunction: true,
-      },
-    ],
-    "react/destructuring-assignment": ["error", "never"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/newline-after-import": "error",
-    "import/no-default-export": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "tailwindcss/classnames-order": "warn",
@@ -49,20 +40,6 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/consistent-type-imports": ["warn", { prefer: "type-imports" }],
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-    "@typescript-eslint/naming-convention": [
-      "error",
-      { selector: ["typeAlias", "typeParameter"], format: ["PascalCase"] },
-      {
-        selector: ["property", "parameterProperty", "method"],
-        format: ["camelCase"],
-      },
-      {
-        selector: "variable",
-        types: ["boolean"],
-        format: ["PascalCase"],
-        prefix: ["is", "has", "should"],
-      },
-    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
