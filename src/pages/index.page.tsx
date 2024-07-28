@@ -1,7 +1,6 @@
 import type { CustomNextPage } from "next";
-import Link from "next/link";
-import { Layout } from "src/layout";
 import FileUploader from "src/components/fileUploader";
+import { Layout } from "src/layout";
 
 const IndexPage: CustomNextPage = () => {
   return (
@@ -10,7 +9,7 @@ const IndexPage: CustomNextPage = () => {
       <FileUploader
         label="Upload your files"
         labelAlt="Drag and drop your files here"
-        acceptedFileTypes={['.jpg', '.jpeg', '.png']}
+        acceptedFileTypes={['image/jpeg', 'image/jpg', 'image/png']}
         allowMultiple
         url="http://localhost:3000/api/upload"
       />
