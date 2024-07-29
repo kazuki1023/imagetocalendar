@@ -1,10 +1,10 @@
 import type { CustomNextPage } from "next";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import DropImageZone from "src/components/DropImageZone";
 import useGoogleCalendar from "src/hooks/useGoogleCalendar";
 import useImageToGPT from "src/hooks/useImageToGpt";
 import { Layout } from "src/layout";
-import responseFormatter from "src/utils/responseFormatter";
+import formatResponse from "src/utils/formatResponse";
 
 const IndexPage: CustomNextPage = () => {
 
@@ -27,7 +27,7 @@ const IndexPage: CustomNextPage = () => {
 
   useEffect(() => {
     if (response) {
-      createEvent(responseFormatter(response));
+      createEvent(formatResponse(response));
     }
   }, [response, createEvent]);
 

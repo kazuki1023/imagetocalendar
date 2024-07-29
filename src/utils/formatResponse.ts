@@ -1,4 +1,4 @@
-const responseFormatter = (response: string) => {
+const formatResponse = (response: string) => {
   const jsonResponse = response.replace(/```json|```/g, "").trim();
   try {
     return JSON.parse(jsonResponse);
@@ -7,4 +7,4 @@ const responseFormatter = (response: string) => {
   }
 }
 
-export default responseFormatter;
+export default formatResponse;

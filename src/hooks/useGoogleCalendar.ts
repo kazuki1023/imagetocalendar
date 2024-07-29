@@ -1,7 +1,8 @@
+import formatStartDate from "src/utils/formatStartDate";
+
 const useGoogleCalendar = () => {
   const createEvent = (eventData: any) => {
-    const scheduleDate = JSON.parse(eventData);
-    const { date, start_time, required_time, title, client } = scheduleDate;
+    const { date, start_time, required_time, title, client } = eventData;
 
     console.log(date);
     console.log(start_time);
@@ -12,19 +13,19 @@ const useGoogleCalendar = () => {
     }
 
     // 開始日時のDateオブジェクトを作成
-    const startDate = new Date(`${date}T${start_time}`);
-    const startDateTime = startDate.toISOString().replace(/-|:|\..+/g, "");
+    const startDate = formatStartDate(date, start_time);
 
     const effectiveRequiredTime = required_time ? parseInt(required_time) : 60;
     const endDate = new Date(
       new Date(`${date} ${start_time}`).getTime() + effectiveRequiredTime * 60000,
     );
-    const endDateTime = endDate.toISOString().replace(/-|:|\..+/g, "");
+    const endDateTime = formatStartDate(date, endDate.toTimeString().slice(0, 5));
+    console.log(endDateTime);
 
     const calendarUrl = new URL("https://calendar.google.com/calendar/render");
     calendarUrl.searchParams.set("action", "TEMPLATE");
     calendarUrl.searchParams.set("text", title + "" + client);
-    calendarUrl.searchParams.set("dates", `${startDateTime}/${endDateTime}`);
+    calendarUrl.searchParams.set("dates", `${startDate}/${endDateTime}`);
     calendarUrl.searchParams.set("trp", "false");
 
     window.open(calendarUrl.toString(), "_blank");
