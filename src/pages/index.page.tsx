@@ -4,6 +4,7 @@ import DropImageZone from "src/components/DropImageZone";
 import useGoogleCalendar from "src/hooks/useGoogleCalendar";
 import useImageToGPT from "src/hooks/useImageToGpt";
 import { Layout } from "src/layout";
+import responseFormatter from "src/utils/responseFormatter";
 
 const IndexPage: CustomNextPage = () => {
 
@@ -26,7 +27,7 @@ const IndexPage: CustomNextPage = () => {
 
   useEffect(() => {
     if (response) {
-      createEvent(response);
+      createEvent(responseFormatter(response));
     }
   }, [response, createEvent]);
 
