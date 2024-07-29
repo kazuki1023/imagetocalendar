@@ -1,6 +1,7 @@
 import type { CustomNextPage } from "next";
-import ImageUploader from "src/features/imageUploader/ImageUploader";
-import { Layout } from "src/layout";
+
+import ImageUploader from "@/features/imageUploader/ImageUploader";
+import { Layout } from "@/layout";
 
 const IndexPage: CustomNextPage = () => {
   return (

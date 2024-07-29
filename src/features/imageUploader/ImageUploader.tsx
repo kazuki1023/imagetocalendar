@@ -1,10 +1,11 @@
 import { useEffect,useState } from "react";
-import DropImageZone from "src/components/DropImageZone";
-import LoaderOverlay from "src/components/LoaderOverlay";
-import UploadedImage from "src/components/UploadedImage";
-import useGoogleCalendar from "src/hooks/useGoogleCalendar";
-import useImageToGPT from "src/hooks/useImageToGpt";
-import formatResponse from "src/utils/formatResponse";
+
+import DropImageZone from "@/components/DropImageZone";
+import LoaderOverlay from "@/components/LoaderOverlay";
+import UploadedImage from "@/components/UploadedImage";
+import useGoogleCalendar from "@/hooks/useGoogleCalendar";
+import useImageToGPT from "@/hooks/useImageToGpt";
+import formatResponse from "@/utils/formatResponse";
 
 const ImageUploader: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);

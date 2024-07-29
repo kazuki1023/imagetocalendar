@@ -1,5 +1,5 @@
-import formatEndDate from "../utils/formatEndDate";
-import formatStartDate from "../utils/formatStartDate";
+import formatEndDate from "@/utils/formatEndDate";
+import formatStartDate from "@/utils/formatStartDate";
 
 const useGoogleCalendar = () => {
   const createEvent = (eventData: any) => {
