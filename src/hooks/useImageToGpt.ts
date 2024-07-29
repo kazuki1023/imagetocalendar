@@ -10,23 +10,18 @@ const useImageToGPT = () => {
     setError(null);
 
     try {
-      const res = await fetch("https://api.openai.com/v1/images:analyze", {
+      const res = await fetch("/api/imageToGPT", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer YOUR_API_KEY`,
         },
-        body: JSON.stringify({
-          image: base64Image,
-        }),
+        body: JSON.stringify({ base64Image }),
       });
-
       if (!res.ok) {
         throw new Error("APIリクエストに失敗しました");
       }
-
       const data = await res.json();
-      setResponse(data);
+      setResponse(data.choices[0].message.content);
     } catch (err: any) {
       setError(err.message);
     } finally {
