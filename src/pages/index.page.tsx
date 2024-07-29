@@ -1,13 +1,16 @@
 import type { CustomNextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropImageZone from "src/components/DropImageZone";
+import useGoogleCalendar from "src/hooks/useGoogleCalendar";
 import useImageToGPT from "src/hooks/useImageToGpt";
 import { Layout } from "src/layout";
+import formatResponse from "src/utils/formatResponse";
 
 const IndexPage: CustomNextPage = () => {
 
   const [image, setImage] = useState<string | null>(null);
   const { sendImageToGPT, response, loading, error } = useImageToGPT();
+  const { createEvent } = useGoogleCalendar();
   const onDropFile = (file: File) => {
     if (file.type.substring(0, 5) !== "image") {
       alert("画像ファイルでないものはアップロードできません！");
@@ -21,6 +24,12 @@ const IndexPage: CustomNextPage = () => {
       fileReader.readAsDataURL(file);
     }
   };
+
+  useEffect(() => {
+    if (response) {
+      createEvent(formatResponse(response));
+    }
+  }, [response, createEvent]);
 
   return (
     <div>

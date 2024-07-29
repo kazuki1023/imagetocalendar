@@ -11,8 +11,8 @@
 それを出力形式に従ってjsonで出力する
 
 #制約条件
-- 日本時間での出力をお願いします
-- 出力形式だけを出力してください
+- 開催日時はYYYY-MM-DDでの出力をお願いします
+- 出力形式にかかれているように出力してください
 - 所要時間の単位は分出力してください
 - 開始時間は24時間表記でお願いします
 - もし所要時間がわからなかったら、"required_time"には何も出力しなくて大丈夫です
@@ -26,11 +26,11 @@
 # 出力例
 {"date" : "2024-07-15", "time", "15:00", "required_time" : "40", "client" : "DeNA", "title" : "最終面接"}
 
-{"date" : "2024-07-24", "time", "10:00", "required_time" : "", "client" : "Anti-Pattern", "title" : ""}
+{"date" : "2024-08-15", "time", "10:00", "required_time" : "", "client" : "Anti-Pattern", "title" : ""}
 
-{"date" : "2024-07-24", "time", "10:00", "required_time" : "60", "client" : "", "title" : ""}
+{"date" : "2024-08-15", "time", "10:00", "required_time" : "60", "client" : "", "title" : ""}
 
-{"date" : "2024-07-24", "time", "10:00", "required_time" : "", "client" : "", "title" : "技術面接"}
+{"date" : "2024-08-15", "time", "10:00", "required_time" : "", "client" : "", "title" : "技術面接"}
 
 
 
