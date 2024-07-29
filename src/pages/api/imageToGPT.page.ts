@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 
+const AUTH_TOKEN = process.env.NEXT_PUBLIC_AUTH_TOKEN;
+
 const client = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
@@ -22,6 +24,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method === "POST") {
     const { base64Image } = req.body;
+    const authToken = req.headers.authorization;
+
+    // トークンの検証
+    if (!authToken || authToken !== `Bearer ${AUTH_TOKEN}`) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
 
     try {
       const response = await client.chat.completions.create({

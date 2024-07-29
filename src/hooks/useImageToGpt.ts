@@ -10,10 +10,11 @@ const useImageToGPT = () => {
     setError(null);
 
     try {
-      const res = await fetch("/api/imageToGPT", {
+      const res = await fetch("http://localhost:3000/api/imageToGPT", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": "Bearer " + process.env.NEXT_PUBLIC_AUTH_TOKEN,
         },
         body: JSON.stringify({ base64Image }),
       });
