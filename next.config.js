@@ -7,6 +7,7 @@ module.exports = {
 
   webpack: (config, { isServer }) => {
     config.experiments = {
+      layers: true,
       asyncWebAssembly: true,
     };
     config.output.webassemblyModuleFilename =
