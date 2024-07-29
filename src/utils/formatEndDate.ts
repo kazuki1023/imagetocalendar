@@ -9,8 +9,6 @@ const formatEndDate = (date: string, startTime: string, requiredTime: string): s
   // 日付と時間を結合してDateオブジェクトを作成
   const dateTimeString = `${date}T${startTime}:00`;
   const startDate = new Date(dateTimeString);
-  console.log(startDate);
-  console.log(startDate.getTime());
 
   // 所要時間をミリ秒に変換して追加
   const endDate = new Date(startDate.getTime() + parseInt(requiredTime) * 60000);

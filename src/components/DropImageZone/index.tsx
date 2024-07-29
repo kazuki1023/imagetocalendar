@@ -1,12 +1,13 @@
-import type { DragEvent, FC, ReactNode } from "react";
+import type { DragEvent, FC } from "react";
 import { useState } from "react";
+
+import Content from "@/components/DropImageZone/Content";
 
 type Props = {
   onDropFile: (file: File) => void;
-  children: ReactNode;
 };
 
-const DropImageZone: FC<Props> = ({ onDropFile, children }) => {
+const DropImageZone: FC<Props> = ({ onDropFile }) => {
   const [isDragActive, setIsDragActive] = useState<boolean>(false);
 
   const onDragEnter = (e: DragEvent<HTMLDivElement>) => {
@@ -40,7 +41,7 @@ const DropImageZone: FC<Props> = ({ onDropFile, children }) => {
       onDrop={onDrop}
       className={`w-96 h-96 ${isDragActive ? "opacity-50" : "opacity-80"}`}
     >
-      {children}
+      <Content/>
     </div>
   );
 };

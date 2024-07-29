@@ -1,5 +1,5 @@
-import formatEndDate from "../utils/formatEndDate";
-import formatStartDate from "../utils/formatStartDate";
+import formatEndDate from "@/utils/formatEndDate";
+import formatStartDate from "@/utils/formatStartDate";
 
 const useGoogleCalendar = () => {
   const createEvent = (eventData: any) => {
@@ -12,7 +12,6 @@ const useGoogleCalendar = () => {
 
     // 開始日時のDateオブジェクトを作成
     const startDate = formatStartDate(date, start_time);
-    console.log(startDate);
     const endDateTime = formatEndDate(date, start_time, required_time);
     const calendarUrl = new URL("https://calendar.google.com/calendar/render");
     calendarUrl.searchParams.set("action", "TEMPLATE");
