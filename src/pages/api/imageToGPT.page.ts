@@ -36,7 +36,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // 命令書の読み込み
     const instructionsPath = path.join(process.cwd(), "src/prompt", "getDateFromImage.txt");
-    console.log(instructionsPath);
     const instructions = fs.readFileSync(instructionsPath, "utf-8");
 
     try {
