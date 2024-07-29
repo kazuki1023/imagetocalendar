@@ -1,11 +1,13 @@
 import type { CustomNextPage } from "next";
 import { useState } from "react";
 import DropImageZone from "src/components/DropImageZone";
+import useImageToGPT from "src/hooks/useImageToGpt";
 import { Layout } from "src/layout";
 
 const IndexPage: CustomNextPage = () => {
 
   const [image, setImage] = useState<string | null>(null);
+  const { sendImageToGPT, response, loading, error } = useImageToGPT();
   const onDropFile = (file: File) => {
     if (file.type.substring(0, 5) !== "image") {
       alert("画像ファイルでないものはアップロードできません！");
@@ -14,6 +16,7 @@ const IndexPage: CustomNextPage = () => {
       fileReader.onload = () => {
         const imageSrc: string = fileReader.result as string;
         setImage(imageSrc);
+        sendImageToGPT(imageSrc);
       };
       fileReader.readAsDataURL(file);
     }
@@ -37,6 +40,7 @@ const IndexPage: CustomNextPage = () => {
           )
         }
       </div>
+      {response && <p>{response}</p>}
     </div >
   );
 };
