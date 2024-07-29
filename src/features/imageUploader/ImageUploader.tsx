@@ -12,11 +12,7 @@ const ImageUploader: React.FC = () => {
       <h1 className="text-2xl font-bold whitespace-nowrap">Chrome Extension Template</h1>
       <div className="w-96 h-96">
         {showDropZone ? (
-          <DropImageZone onDropFile={onDropFile}>
-            <div className="flex justify-center items-center w-full h-full bg-gray-100">
-              <p>Drop image here</p>
-            </div>
-          </DropImageZone>
+          <DropImageZone onDropFile={onDropFile}/>
         ) : (
           <div className="relative w-full h-full">
             {image && <UploadedImage image={image} />}
