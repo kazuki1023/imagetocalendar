@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "0.1",
   "name": "登録くん",
-  "description": "送られてきた面接日程画像から面接日程、時間を読み取ってgoogleカレンダーに予定を登録してくれる拡張機能。",
+  "description": "送られてきた画像から面接日程、時間を読み取ってgoogleカレンダーに予定を登録してくれる拡張機能。",
   "action": {
     "default_popup": "./dist/index.html"
   },
