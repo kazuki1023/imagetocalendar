@@ -1,5 +1,6 @@
 import { useEffect,useState } from "react";
 import DropImageZone from "src/components/DropImageZone";
+import LoaderOverlay from "src/components/LoaderOverlay";
 import UploadedImage from "src/components/UploadedImage";
 import useGoogleCalendar from "src/hooks/useGoogleCalendar";
 import useImageToGPT from "src/hooks/useImageToGpt";
@@ -28,14 +29,17 @@ const ImageUploader: React.FC = () => {
     if (response) {
       createEvent(formatResponse(response));
     }
-  }, [response, createEvent]);
+  }, [response]);
 
   return (
     <div>
       <h1 className="text-2xl font-bold whitespace-nowrap">Chrome Extension Template</h1>
       <div className="w-96 h-96">
         {image ? (
-          <UploadedImage image={image} />
+          <div className="relative w-full h-full">
+            <UploadedImage image={image} />
+            {loading && <LoaderOverlay />}
+          </div>
         ) : (
           <DropImageZone onDropFile={onDropFile}>
             <div className="flex justify-center items-center w-full h-full bg-gray-100">
@@ -44,9 +48,7 @@ const ImageUploader: React.FC = () => {
           </DropImageZone>
         )}
       </div>
-      {loading && <p>送信中...</p>}
       {error && <p>Error: {error}</p>}
-      {response && <p>{response}</p>}
     </div>
   );
 };
