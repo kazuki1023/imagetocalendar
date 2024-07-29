@@ -9,7 +9,7 @@ const ImageUploader: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold whitespace-nowrap">Chrome Extension Template</h1>
+      <h1 className="text-2xl font-bold whitespace-nowrap">面接日程画像をここに貼って！</h1>
       <div className="w-96 h-96">
         {showDropZone ? (
           <DropImageZone onDropFile={onDropFile}/>
