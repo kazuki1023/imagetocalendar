@@ -1,55 +1,30 @@
-import { useEffect,useState } from "react";
-
 import DropImageZone from "@/components/DropImageZone";
+import ErrorMessage from "@/components/ErrorMessage";
 import LoaderOverlay from "@/components/LoaderOverlay";
 import UploadedImage from "@/components/UploadedImage";
-import useGoogleCalendar from "@/hooks/useGoogleCalendar";
-import useImageToGPT from "@/hooks/useImageToGpt";
-import formatResponse from "@/utils/formatResponse";
+import useImageUploader from "@/hooks/useImageUploader";
 
 const ImageUploader: React.FC = () => {
-  const [image, setImage] = useState<string | null>(null);
-  const { sendImageToGPT, response, loading, error } = useImageToGPT();
-  const { createEvent } = useGoogleCalendar();
-
-  const onDropFile = (file: File) => {
-    if (file.type.substring(0, 5) !== "image") {
-      alert("画像ファイルでないものはアップロードできません！");
-    } else {
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        const imageSrc: string = fileReader.result as string;
-        setImage(imageSrc);
-        sendImageToGPT(imageSrc);
-      };
-      fileReader.readAsDataURL(file);
-    }
-  };
-
-  useEffect(() => {
-    if (response) {
-      createEvent(formatResponse(response));
-    }
-  }, [response]);
+  const { image, onDropFile, loading, error, showDropZone } = useImageUploader();
 
   return (
     <div>
       <h1 className="text-2xl font-bold whitespace-nowrap">Chrome Extension Template</h1>
       <div className="w-96 h-96">
-        {image ? (
-          <div className="relative w-full h-full">
-            <UploadedImage image={image} />
-            {loading && <LoaderOverlay />}
-          </div>
-        ) : (
+        {showDropZone ? (
           <DropImageZone onDropFile={onDropFile}>
             <div className="flex justify-center items-center w-full h-full bg-gray-100">
               <p>Drop image here</p>
             </div>
           </DropImageZone>
+        ) : (
+          <div className="relative w-full h-full">
+            {image && <UploadedImage image={image} />}
+            {loading && <LoaderOverlay />}
+          </div>
         )}
       </div>
-      {error && <p>Error: {error}</p>}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };
