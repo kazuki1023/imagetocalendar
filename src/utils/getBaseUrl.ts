@@ -1,6 +1,5 @@
 const getBaseUrl = () => {
   const env = process.env.NEXT_PUBLIC_VERCEL_BUILD_ENV;
-  console.log("env", env);
 
   switch (env) {
     case "production":

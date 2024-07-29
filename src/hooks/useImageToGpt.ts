@@ -6,7 +6,6 @@ const useImageToGPT = () => {
   const [error, setError] = useState<string | null>(null);
   const [response, setResponse] = useState<any>(null);
   const baseUrl = getBaseUrl();
-  console.log("baseUrl", baseUrl);
 
   const sendImageToGPT = async (base64Image: string) => {
     setLoading(true);
