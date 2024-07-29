@@ -1,3 +1,7 @@
+/**
+ * 環境変数に基づいてベースURLを取得する関数
+ * @returns {string} - ベースURL
+ */
 const getBaseUrl = () => {
   const env = process.env.NEXT_PUBLIC_VERCEL_BUILD_ENV;
 
