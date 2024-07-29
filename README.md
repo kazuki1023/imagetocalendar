@@ -1,4 +1,4 @@
-# Chrome Extension Template with Next.js
+# Image2Calendar
 
 ## Description
 
@@ -22,4 +22,16 @@ Select `/extensions`.
 
 ## TODO
 
-If you are using the ChromeAPI, you have to `npm run export` every time you want to check, which is not very efficient for development.
+### ドラッグ&ドロップ
+
+- [x] ドラッグ&ドロップで画像をアップロード
+- [x] ドラッグ&ドロップされた画像の情報を取得
+
+### gpt の api を使って画像から日時を取得
+
+- [ ] 画像から日時を取得
+- [ ] エラー処理
+
+### カレンダーに画像を登録
+
+- [ ] カレンダーに日時情報を登録
