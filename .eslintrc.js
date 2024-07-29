@@ -38,7 +38,6 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/consistent-type-imports": ["warn", { prefer: "type-imports" }],
-    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
