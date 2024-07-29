@@ -1,6 +1,7 @@
 import type { CustomNextPage } from "next";
 import { useEffect, useState } from "react";
 import DropImageZone from "src/components/DropImageZone";
+import UploadedImage from "src/components/UploadedImage";
 import useGoogleCalendar from "src/hooks/useGoogleCalendar";
 import useImageToGPT from "src/hooks/useImageToGpt";
 import { Layout } from "src/layout";
@@ -37,9 +38,7 @@ const IndexPage: CustomNextPage = () => {
       <div className="w-96 h-96">
         {
           image ? (
-            <div className="overflow-hidden w-full h-full">
-              <img src={image} alt="uploaded" className="object-cover hover:object-scale-down w-full h-full " />
-            </div>
+            <UploadedImage image={image} />
           ) : (
             <DropImageZone onDropFile={onDropFile}>
               <div className="flex justify-center items-center w-full h-full bg-gray-100">
