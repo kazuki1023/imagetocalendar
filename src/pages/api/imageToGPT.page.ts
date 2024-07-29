@@ -1,5 +1,7 @@
+import fs from "fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
+import path from "path";
 
 const AUTH_TOKEN = process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
@@ -32,6 +34,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return;
     }
 
+    // 命令書の読み込み
+    const instructionsPath = path.join(process.cwd(), "src/prompt", "getDateFromImage.txt");
+    console.log(instructionsPath);
+    const instructions = fs.readFileSync(instructionsPath, "utf-8");
+
     try {
       const response = await client.chat.completions.create({
         model: "gpt-4o",
@@ -39,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           {
             role: "user",
             content: [
-              { type: "text", text: "What’s in this image?" },
+              { type: "text", text: instructions },
               { type: "image_url", image_url: { url: base64Image } },
             ],
           },
