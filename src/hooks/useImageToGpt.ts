@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import getBaseUrl from "@/utils/getBaseUrl";
+import getBaseUrl from "@/utils/GetBaseUrl";
 
 const useImageToGPT = () => {
   const [loading, setLoading] = useState(false);
