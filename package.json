@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "bundle": "webpack build --mode production --config ./webpack/webpack.config.js",
-    "export": "next build && next export -o extensions/dist && npm run bundle"
+    "export": "next build && next export -o extensions/dist && npm run bundle",
+    "test": "jest"
   },
   "dependencies": {
     "daisyui": "^4.12.10",
@@ -18,7 +19,8 @@
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-error-boundary": "^3.1.4",
-    "react-icons": "^5.2.1"
+    "react-icons": "^5.2.1",
+    "ts-jest": "^29.2.3"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.164",
