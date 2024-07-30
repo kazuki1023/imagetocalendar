@@ -23,10 +23,10 @@
     "ts-jest": "^29.2.3"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.164",
     "@types/jest": "^29.5.12",
+    "@types/chrome": "^0.0.269",
     "@types/node": "16.18.104",
-    "@types/react": "17.0.35",
+    "@types/react": "17.0.80",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "eslint": "7.32.0",
