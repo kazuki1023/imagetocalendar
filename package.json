@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.164",
+    "@types/jest": "^29.5.12",
     "@types/node": "16.18.104",
     "@types/react": "17.0.35",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
