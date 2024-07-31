@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "bundle": "webpack build --mode production --config ./webpack/webpack.config.js",
-    "export": "next build && next export -o extensions/dist && npm run bundle"
+    "export": "next build && next export -o extensions/dist && npm run bundle",
+    "test": "jest"
   },
   "dependencies": {
     "daisyui": "^4.12.10",
@@ -18,11 +19,13 @@
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-error-boundary": "^3.1.4",
-    "react-icons": "^5.2.1"
+    "react-icons": "^5.2.1",
+    "ts-jest": "^29.2.3"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.269",
-    "@types/node": "16.18.104",
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.14.13",
     "@types/react": "17.0.80",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -38,9 +41,12 @@
     "jest": "^29.7.0",
     "prettier": "^2.4.1",
     "tailwindcss": "^3.0.7",
-    "ts-loader": "^9.2.6",
-    "typescript": "4.5.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
     "webpack": "^5.64.1",
     "webpack-cli": "^4.9.1"
+  },
+  "volta": {
+    "node": "22.5.1"
   }
 }

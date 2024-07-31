@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 
 import useGoogleCalendar from "@/hooks/useGoogleCalendar";
 import useImageToGPT from "@/hooks/useImageToGpt";
-import formatResponse from "@/utils/formatResponse";
+import formatResponse from "@/utils/FormatResponse";
 
 const useImageUploader = () => {
   const [image, setImage] = useState<string | null>(null);
