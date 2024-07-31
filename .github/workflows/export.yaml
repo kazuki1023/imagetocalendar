@@ -1,10 +1,10 @@
 name: Export Check
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/*
       - develop
+      - main
 
 jobs:
   export:
@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-node-
       - uses: actions/setup-node@v4
         with:
-          node-version: 22.2.0
+          node-version-file: 'package.json'
       - name: Install dependencies
         run: npm install
       - name: Build and Export
