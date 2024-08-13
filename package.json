@@ -23,7 +23,7 @@
     "ts-jest": "^29.2.3"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.269",
+    "@types/chrome": "^0.0.270",
     "@types/jest": "^29.5.12",
     "@types/node": "20.14.15",
     "@types/react": "17.0.80",
