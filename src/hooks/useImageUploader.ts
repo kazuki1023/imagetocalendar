@@ -32,6 +32,7 @@ const useImageUploader = () => {
     if (!loading && !image) {
       setShowDropZone(true);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   return { image, onDropFile, loading, error, showDropZone };
