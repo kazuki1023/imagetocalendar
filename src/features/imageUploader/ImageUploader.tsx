@@ -16,9 +16,9 @@ const ImageUploader: React.FC = () => {
 
   return (
     <div>
-      <h1 className="whitespace-nowrap text-2xl font-bold">面接日程画像をここに貼って！</h1>
+      <h1 className="text-2xl font-bold whitespace-nowrap">面接日程画像をここに貼って！</h1>
       <div
-        className="h-96 w-96"
+        className="w-96 h-96"
         role="button"
         tabIndex={0}
         onClick={handleClick}
@@ -31,7 +31,7 @@ const ImageUploader: React.FC = () => {
         {showDropZone ? (
           <DropImageZone onDropFile={onDropFile} />
         ) : (
-          <div className="relative h-full w-full">
+          <div className="relative w-full h-full">
             {image && <UploadedImage image={image} />}
             {loading && <LoaderOverlay />}
           </div>
