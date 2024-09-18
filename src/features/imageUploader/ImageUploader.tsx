@@ -4,10 +4,12 @@ import DropImageZone from "@/components/DropImageZone";
 import ErrorMessage from "@/components/ErrorMessage";
 import LoaderOverlay from "@/components/LoaderOverlay";
 import UploadedImage from "@/components/UploadedImage";
+import { useFileUpload } from "@/hooks/useFileUpload";
 import useImageUploader from "@/hooks/useImageUploader";
 
 const ImageUploader: React.FC = () => {
   const { image, onDropFile, loading, error, showDropZone } = useImageUploader();
+  const { handleFileUpload, validationError } = useFileUpload(1);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -42,14 +44,15 @@ const ImageUploader: React.FC = () => {
         accept="image/*"
         type="file"
         className="hidden"
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           const file = e.target.files?.[0];
-          if (file) {
+          if (file && handleFileUpload(file)) {
             onDropFile(file);
           }
         }}
       />
       {error && <ErrorMessage message={error} />}
+      {validationError && <ErrorMessage message={validationError} />}
     </div>
   );
 };
