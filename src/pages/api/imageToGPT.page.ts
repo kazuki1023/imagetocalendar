@@ -12,7 +12,7 @@ const client = new OpenAI({
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: "2mb",
+      sizeLimit: "1mb",
     },
   },
 };
