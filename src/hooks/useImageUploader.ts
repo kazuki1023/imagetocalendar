@@ -28,6 +28,8 @@ const useImageUploader = () => {
   useEffect(() => {
     if (response) {
       createEvent(formatResponse(response));
+      setImage("");
+      setShowDropZone(true);
     }
     if (!loading && !image) {
       setShowDropZone(true);
@@ -35,7 +37,7 @@ const useImageUploader = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
-  return { image, onDropFile, loading, error, showDropZone };
+  return { image, onDropFile, loading, error, showDropZone, setImage };
 };
 
 export default useImageUploader;
