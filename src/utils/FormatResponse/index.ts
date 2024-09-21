@@ -6,7 +6,6 @@
  */
 const formatResponse = (response: string): Record<string, unknown> | string => {
   const jsonResponse = response.replace(/```json|```/g, "").trim();
-  console.log(jsonResponse);
 
   try {
     // JSON形式かどうかを確認するためのチェック
