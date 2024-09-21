@@ -5,7 +5,7 @@ import getBaseUrl from "@/utils/GetBaseUrl";
 const useImageToGPT = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<string>("");
   const baseUrl = getBaseUrl();
 
   const sendImageToGPT = async (base64Image: string) => {

@@ -6,7 +6,7 @@ const useGoogleCalendar = () => {
     const { date, start_time, end_time, title, client } = eventData;
 
     if (!date) {
-      console.error("Date is required to create an event.");
+      alert("日付が取得できませんでした、画像を確認してください");
       return;
     }
 
