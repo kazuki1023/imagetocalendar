@@ -1,10 +1,10 @@
 name: Export Check
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/*
       - develop
+      - main
 
 jobs:
   export:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-node-
       - uses: actions/setup-node@v4
         with:
-          node-version: 22.2.0
+          node-version-file: 'package.json'
       - name: Install dependencies
         run: npm install
       - name: Build and Export
