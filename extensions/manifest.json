@@ -16,8 +16,8 @@
     "service_worker": "background.js"
   },
   "permissions": [
-  "https://*.google.com/*",
-  "activeTab"
+    "https://calendar.google.com/*",
+    "activeTab"
   ],
   "icons": {
     "16": "images/icon16.png",
