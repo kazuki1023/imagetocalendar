@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  output: `export`,
+  distDir: "extensions/dist",
   async headers() {
     return [
       {
