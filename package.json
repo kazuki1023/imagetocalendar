@@ -51,7 +51,7 @@
     "webpack-cli": "^5.0.0"
   },
   "volta": {
-    "node": "22.13.1"
+    "node": "22.14.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
