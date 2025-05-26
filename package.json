@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/chrome": "^0.0.323",
     "@types/jest": "^29.5.12",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.21",
     "@types/react": "17.0.85",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -51,7 +51,7 @@
     "webpack-cli": "^5.0.0"
   },
   "volta": {
-    "node": "22.15.0"
+    "node": "22.15.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
